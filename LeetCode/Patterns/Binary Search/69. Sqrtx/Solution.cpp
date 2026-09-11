@@ -1,12 +1,22 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        long long i=0;
-        while((i+1)*(i+1)<=x)
+        int left=0;
+        int right=x;
+        int ans=0;
+        while(left<=right)
         {
-            i++;
+            long long mid=left+(right-left)/2;
+            if(mid*mid<=x)
+            {
+                ans=mid;
+                left=mid+1;
+            }
+            else
+            {
+                right=mid-1;
+            }
         }
-        return i;
-        return 0;
+        return ans;
     }
 };
